@@ -8,7 +8,7 @@
 		<h1 class="h1">Transitions</h1>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton provides a simple interface for modifying Svelte component transitions. This supports <a class="anchor" href="https://svelte.dev/docs#run-time-svelte-transition" target="_blank" rel="noreferrer">Svelte-provided transitions</a>, such as: <code class="code">fade</code>, <code class="code">blur</code>, <code class="code">fly</code>, <code class="code">slide</code>, and <code class="code">scale</code>. As well as custom <a class="anchor" href="https://svelte.dev/tutorial/custom-css-transitions" target="_blank" rel="noreferrer">CSS</a> and <a class="anchor" href="https://svelte.dev/tutorial/custom-js-transitions" target="_blank" rel="noreferrer">Javascript</a> transitions.
+			Skeleton provides a simple interface for modifying Svelte component transitions. This supports <a class="anchor" href="https://svelte.dev/docs#run-time-svelte-transition" target="_blank" rel="noreferrer">Svelte-provided transitions</a>, such as: <code class="code">fade</code>, <code class="code">blur</code>, <code class="code">fly</code>, <code class="code">slide</code>, and <code class="code">scale</code>. As well as custom <a class="anchor" href="https://v4.svelte.dev/tutorial/custom-css-transitions" target="_blank" rel="noreferrer">CSS</a> and <a class="anchor" href="https://v4.svelte.dev/tutorial/custom-js-transitions" target="_blank" rel="noreferrer">Javascript</a> transitions.
 		</p>
 	</header>
 

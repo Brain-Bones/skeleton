@@ -127,7 +127,7 @@ only utilize theme on this doc page.
 				<svelte:fragment slot="panel">
 					{#if method === 0}
 						<p>
-							Use the following <a class="anchor" href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer"
+							Use the following <a class="anchor" href="https://v4.svelte.dev/tutorial/actions" target="_blank" rel="noreferrer"
 								>Svelte action</a
 							> to filter any element. Pass the filter name as the only parameter.
 						</p>

@@ -43,11 +43,11 @@
 				<h3 class="h3" data-toc-ignore>Deprecated</h3>
 				<!-- prettier-ignore -->
 				<p>
-					This feature is being phased out as we transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This component will remain functional for all 2.x releases. However, we recommend you migrate to <a class="underline" href="https://next.skeleton.dev/docs/get-started/layouts" target="_blank">custom layouts</a> as soon as possible. While this guide is provided for Skeleton v3, the only prerequisite is Tailwind. Which means you can use these techniques today!
+					This feature is being phased out as we transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This component will remain functional for all 2.x releases. However, we recommend you migrate to <a class="underline" href="https://skeleton.dev/docs/guides/layouts" target="_blank">custom layouts</a> as soon as possible. While this guide is provided for Skeleton v3, the only prerequisite is Tailwind. Which means you can use these techniques today!
 				</p>
 			</div>
 			<div class="alert-actions">
-				<a class="btn variant-filled" href="https://next.skeleton.dev/docs/get-started/layouts" target="_blank">Layout Guide</a>
+				<a class="btn variant-filled" href="https://skeleton.dev/docs/guides/layouts" target="_blank">Layout Guide</a>
 			</div>
 		</aside>
 		<div class="space-y-2">
