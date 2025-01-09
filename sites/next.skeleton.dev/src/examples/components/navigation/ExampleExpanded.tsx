@@ -16,14 +16,14 @@ export const Page: React.FC = () => {
 			{/* prettier-ignore */}
 			<Navigation.Rail
                 expanded
-				header={<Navigation.Tile href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>}
-				footer={<Navigation.Tile href="/settings" labelExpanded="Settings"><IconSettings /></Navigation.Tile>}
+				header={<Navigation.Tile id="0" href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>}
+				footer={<Navigation.Tile id="1" href="/settings" labelExpanded="Settings"><IconSettings /></Navigation.Tile>}
 			>
-				<Navigation.Tile id="0" labelExpanded="Browse Files" href="#"><IconFolder /></Navigation.Tile>
-				<Navigation.Tile id="1" labelExpanded="Browse Images" href="#"><IconImage /></Navigation.Tile>
-				<Navigation.Tile id="2" labelExpanded="Browse Music" href="#"><IconMusic /></Navigation.Tile>
-				<Navigation.Tile id="3" labelExpanded="Browse Videos" href="#"><IconVideo /></Navigation.Tile>
-				<Navigation.Tile id="4" labelExpanded="Browse Games" href="#"><IconGames /></Navigation.Tile>
+				<Navigation.Tile id="2" labelExpanded="Browse Files" href="#"><IconFolder /></Navigation.Tile>
+				<Navigation.Tile id="3" labelExpanded="Browse Images" href="#"><IconImage /></Navigation.Tile>
+				<Navigation.Tile id="4" labelExpanded="Browse Music" href="#"><IconMusic /></Navigation.Tile>
+				<Navigation.Tile id="5" labelExpanded="Browse Videos" href="#"><IconVideo /></Navigation.Tile>
+				<Navigation.Tile id="6" labelExpanded="Browse Games" href="#"><IconGames /></Navigation.Tile>
 			</Navigation.Rail>
 			{/* Content */}
 			<div className="flex items-center justify-center">

@@ -10,11 +10,11 @@ export const Page: React.FC = () => {
 				<IconBox />
 			</Navigation.Tile>
 			{/* Add selected to button tiles to enable the active state */}
-			<Navigation.Tile id="0" label="Button" selected>
+			<Navigation.Tile id="1" label="Button" selected>
 				<IconBox />
 			</Navigation.Tile>
 			{/* When adding an href, they are converted to anchors */}
-			<Navigation.Tile id="0" label="Anchor" href="#">
+			<Navigation.Tile id="2" label="Anchor" href="#">
 				<IconBox />
 			</Navigation.Tile>
 		</div>

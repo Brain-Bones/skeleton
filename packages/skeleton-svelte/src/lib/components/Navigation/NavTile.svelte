@@ -57,7 +57,7 @@
 	}
 </script>
 
-<!-- @component An individual Navgiation component tile. -->
+<!-- @component An individual Navigation component tile. -->
 
 <svelte:element
 	this={element}
