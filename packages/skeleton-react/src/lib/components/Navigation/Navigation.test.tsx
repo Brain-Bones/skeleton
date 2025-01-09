@@ -128,7 +128,7 @@ describe('Navigation', () => {
 		it('Renders the component', () => {
 			const { getByTestId } = render(
 				<Navigation.Rail>
-					<Navigation.Tile></Navigation.Tile>
+					<Navigation.Tile id="0"></Navigation.Tile>
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).toBeInTheDocument();
@@ -137,7 +137,7 @@ describe('Navigation', () => {
 		it('Renders the children', () => {
 			const { getByTestId } = render(
 				<Navigation.Rail>
-					<Navigation.Tile>
+					<Navigation.Tile id="0">
 						<div data-testid="child"></div>
 					</Navigation.Tile>
 				</Navigation.Rail>
@@ -148,7 +148,7 @@ describe('Navigation', () => {
 		for (const prop of ['base', 'width', 'aspect', 'background', 'hover', 'gap', 'rounded']) {
 			it(`Correctly applies the \`${prop}\` prop`, () => {
 				const value = 'foo';
-				const { getByTestId } = render(<Navigation.Tile {...{ [prop]: value }} />);
+				const { getByTestId } = render(<Navigation.Tile id="0" {...{ [prop]: value }} />);
 				expect(getByTestId(testId)).toHaveClass(value);
 			});
 		}
@@ -158,14 +158,14 @@ describe('Navigation', () => {
 			const expandedPadding = 'expandedPadding';
 			const { getByTestId, rerender } = render(
 				<Navigation.Rail expanded={false}>
-					<Navigation.Tile padding={padding} expandedPadding={expandedPadding}></Navigation.Tile>);
+					<Navigation.Tile id="0" padding={padding} expandedPadding={expandedPadding}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).toHaveClass(padding);
 			expect(getByTestId(testId)).not.toHaveClass(expandedPadding);
 			rerender(
 				<Navigation.Rail expanded={true}>
-					<Navigation.Tile padding={padding} expandedPadding={expandedPadding}></Navigation.Tile>);
+					<Navigation.Tile id="0" padding={padding} expandedPadding={expandedPadding}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).not.toHaveClass(padding);
@@ -177,14 +177,14 @@ describe('Navigation', () => {
 			const expandedGap = 'expandedGap';
 			const { getByTestId, rerender } = render(
 				<Navigation.Rail expanded={false}>
-					<Navigation.Tile gap={gap} expandedGap={expandedGap}></Navigation.Tile>);
+					<Navigation.Tile id="0" gap={gap} expandedGap={expandedGap}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).toHaveClass(gap);
 			expect(getByTestId(testId)).not.toHaveClass(expandedGap);
 			rerender(
 				<Navigation.Rail expanded={true}>
-					<Navigation.Tile gap={gap} expandedGap={expandedGap}></Navigation.Tile>);
+					<Navigation.Tile id="0" gap={gap} expandedGap={expandedGap}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).not.toHaveClass(gap);
@@ -196,14 +196,14 @@ describe('Navigation', () => {
 			const expandedClasses = 'expandedClasses';
 			const { getByTestId, rerender } = render(
 				<Navigation.Rail expanded={false}>
-					<Navigation.Tile classes={classes} expandedClasses={expandedClasses}></Navigation.Tile>);
+					<Navigation.Tile id="0" classes={classes} expandedClasses={expandedClasses}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).toHaveClass(classes);
 			expect(getByTestId(testId)).not.toHaveClass(expandedClasses);
 			rerender(
 				<Navigation.Rail expanded={true}>
-					<Navigation.Tile classes={classes} expandedClasses={expandedClasses}></Navigation.Tile>);
+					<Navigation.Tile id="0" classes={classes} expandedClasses={expandedClasses}></Navigation.Tile>);
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).not.toHaveClass(classes);
@@ -214,13 +214,13 @@ describe('Navigation', () => {
 			const active = 'active';
 			const { getByTestId, rerender } = render(
 				<Navigation.Rail>
-					<Navigation.Tile active={active} selected={false}></Navigation.Tile>
+					<Navigation.Tile id="0" active={active} selected={false}></Navigation.Tile>
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).not.toHaveClass('active');
 			rerender(
 				<Navigation.Rail>
-					<Navigation.Tile active={active} selected={true}></Navigation.Tile>
+					<Navigation.Tile id="0" active={active} selected={true}></Navigation.Tile>
 				</Navigation.Rail>
 			);
 			expect(getByTestId(testId)).toHaveClass('active');
@@ -232,7 +232,7 @@ describe('Navigation', () => {
 			it('Renders the component', () => {
 				const { getByTestId } = render(
 					<Navigation.Rail>
-						<Navigation.Tile label="label"></Navigation.Tile>
+						<Navigation.Tile id="0" label="label"></Navigation.Tile>
 					</Navigation.Rail>
 				);
 				expect(getByTestId(testId)).toBeInTheDocument();
@@ -244,7 +244,7 @@ describe('Navigation', () => {
 					const value = 'foo';
 					const { getByTestId } = render(
 						<Navigation.Rail>
-							<Navigation.Tile label="label" {...{ [prop]: value }}></Navigation.Tile>
+							<Navigation.Tile id="0" label="label" {...{ [prop]: value }}></Navigation.Tile>
 						</Navigation.Rail>
 					);
 					expect(getByTestId(testId)).toHaveClass(value);
@@ -258,7 +258,7 @@ describe('Navigation', () => {
 			it('Renders the component', () => {
 				const { getByTestId } = render(
 					<Navigation.Rail expanded={true}>
-						<Navigation.Tile labelExpanded="labelExpanded"></Navigation.Tile>
+						<Navigation.Tile id="0" labelExpanded="labelExpanded"></Navigation.Tile>
 					</Navigation.Rail>
 				);
 				expect(getByTestId(testId)).toBeInTheDocument();
@@ -270,7 +270,7 @@ describe('Navigation', () => {
 					const value = 'foo';
 					const { getByTestId } = render(
 						<Navigation.Rail expanded={true}>
-							<Navigation.Tile labelExpanded="labelExpanded" {...{ [prop]: value }}></Navigation.Tile>
+							<Navigation.Tile id="0" labelExpanded="labelExpanded" {...{ [prop]: value }}></Navigation.Tile>
 						</Navigation.Rail>
 					);
 					expect(getByTestId(testId)).toHaveClass(value);
