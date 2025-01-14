@@ -1,0 +1,36 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Figma UI kit
+description: Welcome to the Skeleton Figma Design System Tutorials!
+order: 60
+---
+
+export const components = componentSet;
+
+import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
+
+import { Image } from 'astro:assets';
+import ImgHero from '@images/get-started/figma/hero.webp';
+import ImgComponents from '@images/get-started/figma/components.webp';
+import ImgPlugin from '@images/get-started/figma/plugin.webp';
+import ImgTutorial from '@images/get-started/figma/tutorials.webp';
+import ImgKit from '@images/get-started/figma/ui-kit.webp';
+import { Clock3 } from 'lucide-react';
+import { Shapes } from 'lucide-react';
+import { SwatchBook } from 'lucide-react';
+
+<p class="type-scale-5">Explore step-by-step guides to unlock the full potential of Skeleton in your design workflow. Whether you're setting up for the first time or mastering advanced features, these tutorials will guide you every step of the way.</p>
+
+Discover all the benefits of Skeleton Figma UI library:
+<figure class="card-filled-enhanced flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="/figma#get-access"
+		target="_blank"
+	>
+		Get the Figma UI Kit &rarr;
+	</a>
+</figure>
+
+<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />

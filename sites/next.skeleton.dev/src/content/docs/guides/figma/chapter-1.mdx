@@ -1,0 +1,111 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: 1 - Setup & Usage
+description: Get Started with Skeleton.
+order: 0
+---
+
+export const components = componentSet;
+
+import Process from '@components/docs/Process.astro';
+import ProcessStep from '@components/docs/ProcessStep.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
+
+import { Image } from 'astro:assets';
+import { BookOpen } from 'lucide-svelte';
+import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
+import ImgCreateNewProject from '@images/tutorials/figma/chapter-1/01_createNewProject.webp';
+import ImgImportProject from '@images/tutorials/figma/chapter-1/02_importProject.webp';
+import ImgPublish from '@images/tutorials/figma/chapter-1/03_publish.webp';
+import ImgCreateNewFile from '@images/tutorials/figma/chapter-1/04_createNewFile.webp';
+import ImgSelectLibrary from '@images/tutorials/figma/chapter-1/05_selectLibrary.webp';
+import ImgUseLibrary from '@images/tutorials/figma/chapter-1/06_useLibrary.webp';
+
+---
+
+## How to Install the Figma Library
+
+For best results, a <a href="https://www.figma.com/pricing/#figma" class="chip preset-filled mx-1" target="_blank">Figma Professional Team Plan</a> (or higher) is recommended.
+
+<Process>
+    <ProcessStep step="1">
+        ### Purchase the Figma Asset
+
+        <div class="card-enhanced border-[1px] border-surface-200-800 space-y-2 p-4 md:p-8 flex flex-row justify-between items-center">
+            <div className="flex flex-row gap-4 items-center">
+            <Image src={SvgSkeleton} class="rounded-container" alt="Skeleton" />
+            <div className="flex flex-col gap-1">
+                <h6 className="h6">Skeleton Figma Design System</h6>
+                <p>Complete set of themed components for Skeleton v3</p>
+            </div>
+            </div>
+            <a href="https://polar.sh/skeleton-kit/" type="button" class="btn preset-filled-primary-500" target="_blank">Purchase</a>
+        </div>
+    </ProcessStep>
+
+    <ProcessStep step="2">
+        ### Create a New Project
+
+        In Figma, go to `Home`¹ and select `All projects`² from the left sidebar². On the right side, click `+ Project`³ and name the project `Libraries`⁴.
+
+        <Image src={ImgCreateNewProject} class="rounded-container" alt="Create New Project" />
+    </ProcessStep>
+
+    <ProcessStep step="3">
+        ### Import Skeleton Design System
+
+        From the project page, click `Create new` in the top-right corner⁵ and select `Import`⁶. Then, choose `Import from computer`⁷ and select the Skeleton Figma file.
+
+        <Image src={ImgImportProject} class="rounded-container" alt="Import Project" />
+    </ProcessStep>
+
+    <ProcessStep step="4">
+        ### Publish Skeleton Figma Library
+
+        To use the library across all Figma files, it must be published.
+
+        Double-click the Skeleton Library to open it. At the top left, next to the library file name, click the chevron `v`⁸ and select `Publish library…`⁹. In the modal, click `Publish`¹⁰ and wait for the library to finish publishing.
+
+        <Image src={ImgPublish} class="rounded-container" alt="Publish" />
+
+        Once published, you can access the Skeleton Figma Library in any of your projects.
+    </ProcessStep>
+</Process>
+
+---
+
+## How to Use the Figma Library
+
+<Process>
+    <ProcessStep step="1">
+        ### Open or Create a Project to Use the Library
+
+        Open an existing project, or create a new one by clicking `+ Create new`¹ and selecting `Design file`².
+
+        <Image src={ImgCreateNewFile} class="rounded-container" alt="Create New File" />
+    </ProcessStep>
+
+    <ProcessStep step="2">
+        ### Add the Library to Your Project
+
+        In the left sidebar, click `Assets`³, then click the <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ⁴ icon. A modal will appear with the `Libraries` tab active. Search for `skeleton`⁵ and click `Add to file`⁶.
+
+        The library is now added to your file, and its assets are ready for use.
+
+        <Image src={ImgSelectLibrary} class="rounded-container" alt="Select Library" />
+    </ProcessStep>
+
+    <ProcessStep step="3">
+        ### Use Assets (Components)
+
+        You can now access the Skeleton Design library. In the `Assets` tab, you’ll see a list of Skeleton Components. Drag components onto the canvas or search for specific ones.
+
+        <Image src={ImgUseLibrary} class="rounded-container" alt="Use Library" />
+    </ProcessStep>
+</Process>
+
+---
+
+## Guides
+
+<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />

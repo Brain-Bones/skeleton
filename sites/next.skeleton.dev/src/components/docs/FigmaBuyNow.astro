@@ -1,0 +1,113 @@
+---
+import { Check as IconCheck } from 'lucide-react';
+---
+
+<!-- Load the Polar checkout script -->
+<script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
+
+<script>
+	const htmlElement = document.documentElement;
+
+	const buyButtons = document.querySelectorAll('[data-polar-checkout]');
+
+	/**
+	 * Updates the theme of the buy buttons based on the presence of the 'dark' class on the HTML element
+	 */
+	function updateTheme() {
+		const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+
+		buyButtons.forEach((button) => {
+			button.setAttribute('data-polar-checkout-theme', theme);
+		});
+	}
+
+	// Initial update of the theme
+	updateTheme();
+
+	// Create a MutationObserver to observe changes to the class attribute of the HTML element
+	new MutationObserver(() => {
+		updateTheme();
+	}).observe(htmlElement, {
+		// Observe changes to attributes
+		attributes: true,
+		// Only observe changes to the class attribute
+		attributeFilter: ['class']
+	});
+</script>
+
+<div class="flex flex-col bg-transparent rounded-container border-[1px] border-surface-200-800 shadow-lg overflow-hidden">
+	<div class="flex flex-col p-6 w-full">
+		<span class="text-xl font-semibold h-full pb-6">Figma UI Kit for Skeleton includes:</span>
+		<div class="flex flex-col gap-3">
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Figma Skeleton v3 Components library</p>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Lucide Icons</p>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Dark / Light Support</p>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Custom Theme Support</p>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Figma Plugin to import your custom Theme</p>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+					<IconCheck size="12" />
+				</div>
+				<p>Tutorials</p>
+			</div>
+		</div>
+	</div>
+	<div class="flex flex-col md:flex-row bg-transparent w-full border-t border-surface-200-800">
+		<div class="flex flex-col gap-1 p-6 border-r md:border-t-0 border-b md:border-b-0 border-surface-200-800 w-full">
+			<span class="text-lg font-semibold"><span class="text-surface-600-400">License for</span> 1 person</span>
+			<div class="flex flex-col h-full pt-12">
+				<div class="flex flex-row gap-1 items-end pb-4">
+					<span class="text-4xl font-semibold">$109</span>
+					<span class="opacity-60">+1 year of updates </span>
+				</div>
+				<a
+					href="https://buy.polar.sh/polar_cl_4Wd2CxwXfx-g5z-87D2PNRkdamIiohCLnxH3UqaAqGA"
+					data-polar-checkout
+					data-polar-checkout-theme="dark"
+					class="btn btn-lg self-end preset-filled flex items-center gap-2 w-full">Buy</a
+				>
+			</div>
+		</div>
+		<div class="flex flex-col gap-1 p-6 w-full">
+			<span class="text-lg font-semibold"><span class="text-surface-600-400">License for</span> 25 people</span>
+
+			<div class="flex flex-col h-full pt-12">
+				<div class="flex flex-row gap-1 items-end pb-4">
+					<span class="text-4xl font-semibold">$219</span>
+					<span class="opacity-60">+1 year of updates </span>
+				</div>
+				<a
+					href="https://buy.polar.sh/polar_cl_vLLsRrjP5rIuLgp6Loez6lPjyg1vrAhH435-MVhIpIk"
+					data-polar-checkout
+					data-polar-checkout-theme="dark"
+					class="btn btn-lg self-end preset-filled flex items-center gap-2 w-full">Buy</a
+				>
+			</div>
+		</div>
+	</div>
+</div>

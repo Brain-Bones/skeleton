@@ -5,6 +5,17 @@ import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
 
+import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
+
+import { Image } from 'astro:assets';
+import ImgHeroDark from '@images/get-started/figma/hero-dark.webp';
+import ImgHeroLight from '@images/get-started/figma/hero-light.webp';
+import ImgPlugin from '@images/get-started/figma/plugin.webp';
+import ImgTutorial from '@images/get-started/figma/tutorials.webp';
+import ImgKit from '@images/get-started/figma/ui-kit.webp';
+import { Clock3, Shapes, SwatchBook, MessageCircle } from 'lucide-react';
+
 const layoutProps = {};
 ---
 
@@ -12,10 +23,149 @@ const layoutProps = {};
 	<!-- Header -->
 	<Header />
 	<!-- Main -->
-	<main class="max-w-3xl mx-auto space-y-10 py-10 px-4">
+	<main class="mx-auto flex flex-col items-center space-y-10 py-10 px-4 mt-0 md:mt-10">
 		<!-- NOTE: feel free to add any page content here! -->
-		<p class="text-center">Coming soon!</p>
+		<div class="max-w-4xl relative flex flex-col items-center gap-6">
+			<h1 class="h1 text-center">Design faster. Align&nbsp;better. Deliver&nbsp;consistently.</h1>
+			<p class="type-scale-4 opacity-60 text-center w-full md:w-1/2">
+				Turn Figma into your superpower for creating apps that look stunning, align with clients and developers, and stay on-brand with
+				ease.
+			</p>
+		</div>
+
+		<div class="flex flex-col items-center pb-8">
+			<a href="#get-access" class="btn btn-lg preset-filled flex items-center gap-2 whitespace-nowrap shadow-lg w-48" href="#get-access">
+				Get Access
+			</a>
+		</div>
+		<div class="relative">
+			<Image src={ImgHeroDark} class="w-full rounded-container max-w-6xl hidden dark:block" alt="hero" />
+			<Image src={ImgHeroLight} class="w-full rounded-container max-w-6xl dark:hidden" alt="hero" />
+		</div>
+		<div class="max-w-4xl">
+			<h2 class="h2 py-12">Are you struggling to create consistent designs?</h2>
+
+			<div class="flex flex-col md:flex-row gap-4 pb-12 pt-2">
+				<div class="basis-1/3 flex flex-row md:flex-col gap-4 p-6 bg-transparent shadow-lg border border-surface-200-800 rounded-container">
+					<div class="flex flex-col gap-12">
+						<Clock3 size="32" className="opacity-80" />
+						<p class="text-surface-600-400 type-scale-5 md:type-scale-3">
+							<span class="text-surface-950-50">Spending hours </span> recreating components in Figma?
+						</p>
+					</div>
+				</div>
+
+				<div class="basis-1/3 flex flex-row md:flex-col gap-4 p-6 bg-transparent shadow-lg border border-surface-200-800 rounded-container">
+					<div class="flex flex-col gap-12">
+						<Shapes size="32" className="opacity-80" />
+						<p class="text-surface-600-400 type-scale-5 md:type-scale-3">
+							Finding it
+							<span class="text-surface-950-50">hard to align</span> with developers or clients?
+						</p>
+					</div>
+				</div>
+
+				<div class="basis-1/3 flex flex-row md:flex-col gap-4 p-6 bg-transparent shadow-lg border border-surface-200-800 rounded-container">
+					<div class="flex flex-col gap-12">
+						<SwatchBook size="32" className="opacity-80" />
+						<p class="text-surface-600-400 type-scale-5 md:type-scale-3">
+							Unsure how your design will look with<span class="text-surface-950-50"> a custom theme?</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="pb-16">
+				<h2 class="h2 opacity-60">You’re not alone. We know these frustrations, and we’re here to help.</h2>
+			</div>
+
+			<h2 class="h2">We streamline your workflow by bringing design, development and your customers into perfect harmony.</h2>
+
+			<div class="flex flex-col gap-24 w-full py-12">
+				<div class="flex flex-col md:flex-row gap-6 w-full">
+					<div class="basis-1/2">
+						<Image src={ImgKit} class="rounded-container border border-surface-200-800" alt="components" />
+					</div>
+					<div class="flex flex-col gap-4 basis-1/2">
+						<h5 class="h5">Align quickly with prebuilt Skeleton components.</h5>
+						<p class="text-surface-800-200">
+							All components from Skeleton have been recreated in Figma, saving you time and helping establish consistency.
+						</p>
+					</div>
+				</div>
+
+				<div class="flex flex-col-reverse md:flex-row gap-6 w-full">
+					<div class="flex flex-col gap-2 basis-1/2">
+						<h5 class="h5">Ensure consistency with theme imports and customizations.</h5>
+						<p class="text-surface-800-200">
+							Import your custom Skeleton themes directly into Figma using our plugin. Switch between dark and light modes or preview your
+							design with your theme instantly.
+						</p>
+					</div>
+
+					<div class="basis-1/2">
+						<Image src={ImgPlugin} class="rounded-container border border-surface-200-800" alt="components" />
+					</div>
+				</div>
+
+				<div class="flex flex-col md:flex-row gap-6 w-full">
+					<div class="basis-1/2">
+						<Image src={ImgTutorial} class="rounded-container border border-surface-200-800" alt="components" />
+					</div>
+					<div class="flex flex-col gap-2 basis-1/2">
+						<h5 class="h5">Iterate faster with tutorials designed for every step of the design process.</h5>
+						<p class="text-surface-800-200">Learn how to:</p>
+						<ul class="list-inside list-disc space-y-2 text-surface-800-200">
+							<li>Customize themes for your brand.</li>
+							<li>Create wireframes for quick iteration and client feedback.</li>
+							<li>Design developer-ready assets to streamline handoffs.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-6 py-12">
+				<blockquote class="blockquote text-3xl not-italic">
+					"...the Figma is very well put together and the most robust that I could find out of all the UI kits so our company chose to go
+					with Skeleton 🙂"
+				</blockquote>
+
+				<div class="flex flex-col gap-12 pb-12">
+					<a class="text-surface-700-300">Rob, Skeleton community member</a>
+					Join over 4500+ people
+					<a class="btn btn-lg preset-filled flex items-center gap-2 whitespace-nowrap shadow-lg w-fit" href="#get-access">
+						Get access now
+					</a>
+				</div>
+			</div>
+
+			<h2 class="h2 pb-8" id="get-access">Get Access</h2>
+
+			<FigmaBuyNow />
+
+			<p class="pt-4 pb-16">
+				Created with ❤️ from <a class="anchor" href="https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/" target="_blank">Micha</a>,
+				<a class="anchor" href="https://www.linkedin.com/in/bohdan-karpliak-659a41162/" target="_blank">Bohdan</a>, and <a
+					class="anchor"
+					href="https://www.skeletonlabs.co/"
+					target="_blank">Skeleton Labs</a
+				>.
+			</p>
+
+			<h2 class="h2 pb-8">Guides</h2>
+
+			<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
+		</div>
 	</main>
 	<!-- Footer -->
 	<Footer />
+
+	<a
+		href="https://www.etesie.dev/support"
+		target="_blank"
+		class="fixed bottom-6 right-6 preset-filled hover:bg-surface-900-100 p-4 rounded-full shadow-lg transition-colors flex items-center justify-center"
+		aria-label="Contact Support"
+	>
+		<MessageCircle size={24} />
+	</a>
 </LayoutRoot>

@@ -1,0 +1,88 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: 3 - Update Figma library
+description: Keep Your Skeleton Library Up to Date
+order: 20
+---
+
+export const components = componentSet;
+
+import Process from '@components/docs/Process.astro';
+import ProcessStep from '@components/docs/ProcessStep.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
+
+import { Image } from 'astro:assets';
+import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
+import ImgImport from '@images/tutorials/figma/chapter-3/02_import.webp';
+import ImgPublishLib from '@images/tutorials/figma/chapter-3/03_publishLibrary.webp';
+import ImgOpenFile from '@images/tutorials/figma/chapter-3/04_openFile.webp';
+import ImgSelectSkeleton from '@images/tutorials/figma/chapter-3/04_selectSkeleton.webp';
+import ImgSelectNewSkeleton from '@images/tutorials/figma/chapter-3/04_selectNewSkeleton.webp';
+import ImgRemoveOld from '@images/tutorials/figma/chapter-3/removeOld.webp';
+import { ChevronDown, BookOpen } from 'lucide-svelte';
+
+
+---
+
+<p className='text-xl'>Skeleton is continually evolving, and to ensure that your design remains in harmony with it, it's essential to keep the Skeleton Figma UI library up to date. </p>
+
+## How to update the library
+
+<Process>
+    <ProcessStep step="1">
+        ### Download the latest version of the Skeleton Figma UI library 
+
+        <a href='https://polar.sh/skeleton-kit/' className='btn preset-filled-primary-500'>Download</a>
+    </ProcessStep>
+
+    <ProcessStep step="2">
+        ### Import the new version to your Figma library
+
+        From the project page, click `Create new`² in the top-right corner and select `Import`³. Then, choose `Import from computer`⁴ and select the Skeleton Figma file.
+        <Image src={ImgImport} class="rounded-container" alt="Import" />
+    </ProcessStep>
+
+    <ProcessStep step="3">
+        ### Publish new version
+
+        Double-click the new version of Skeleton v3 Figma UI Library to open it. 
+
+        <p className="relative">At the top left, next to the library file name, click the  <span class="badge-icon preset-filled"><ChevronDown size={16}/></span> ⁵ icon and select `Publish library…` ⁶. In the modal, click `Publish` ⁷ and wait for the library to finish publishing.</p>
+        <Image src={ImgPublishLib} class="rounded-container" alt="Publish library" />
+    </ProcessStep>
+
+    <ProcessStep step="4">
+        ### Swap libraries
+
+        Open the project that uses the old version of Skeleton v3 Figma UI library. Open the `Assets`⁸ tab and click on the <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ⁹ icon to open the `Manage libraries`¹⁰ popup.
+
+        In the `Libraries added to this file` section, select the old version of the Skeleton v3 Figma UI library¹¹.
+         <Image src={ImgOpenFile} class="rounded-container" alt="Publish library" />
+
+         <p className='pt-4'>Click the `Swap Library`¹² button in the bottom right corner of the popup.</p>
+         <Image src={ImgSelectSkeleton} class="rounded-container" alt="Publish library" />
+
+         <p className='pt-4'>In the top right corner of the popup, click `Choose library`¹³, select the latest Skeleton v3 Figma UI library¹⁴, and then click `Swap library`¹⁵.</p>
+         <Image src={ImgSelectNewSkeleton} class="rounded-container" alt="Publish library" />
+
+         <p className='pt-4'>Your library will be updated, and all components using the Skeleton Figma library will refresh automatically.</p>
+    </ProcessStep>
+</Process>
+
+---
+
+### Remove previous version
+
+After updating the Skeleton Figma library, please remove previous versions. Keeping multiple versions can create multiple copies of the same components, leading to design inconsistencies.
+
+Open the project that utilizes the old version of Skeleton v3 Figma UI library. Open `Assets`¹ tab and click on <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ² icon to open `Manage libraries` popup.
+
+In the `Libraries added to this file` section, click the `Remove`³ button next to the old version of the Skeleton v3 Figma UI library.
+
+<Image src={ImgRemoveOld} class="rounded-container" alt="Publish library" />
+
+---
+
+## Guides
+
+<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
