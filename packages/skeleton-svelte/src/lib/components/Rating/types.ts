@@ -1,7 +1,7 @@
 import * as rating from '@zag-js/rating-group';
 import type { Snippet } from 'svelte';
 
-export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'> {
+export interface RatingProps extends Omit<rating.Context, 'id'> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;
@@ -47,8 +47,4 @@ export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'
 	iconFull?: Snippet;
 	/** Set the label snippet */
 	label?: Snippet;
-
-	// Events ---
-	/** Set the onValueChange callback */
-	onValueChange?: (value: number) => void;
 }

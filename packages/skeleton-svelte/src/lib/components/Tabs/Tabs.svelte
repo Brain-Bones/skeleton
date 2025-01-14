@@ -33,6 +33,7 @@
 		tabs.machine({
 			id: useId(),
 			onValueChange(details) {
+				zagProps.onValueChange?.(details);
 				value = details.value;
 			}
 		}),

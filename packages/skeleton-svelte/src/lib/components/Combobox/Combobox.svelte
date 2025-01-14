@@ -60,16 +60,19 @@
 			collection,
 			value: $state.snapshot(value),
 			loopFocus: true,
-			onOpenChange() {
+			onOpenChange(details) {
+				zagProps.onOpenChange?.(details);
 				options = data;
 			},
-			onInputValueChange({ inputValue }) {
-				const filtered = data.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase()));
+			onInputValueChange(details) {
+				zagProps.onInputValueChange?.(details);
+				const filtered = data.filter((item) => item.label.toLowerCase().includes(details.inputValue.toLowerCase()));
 				const newOptions = filtered.length > 0 ? filtered : data;
 				collection.setItems(newOptions);
 				options = newOptions;
 			},
 			onValueChange(event) {
+				zagProps.onValueChange?.(event);
 				value = event.value;
 			}
 		}),

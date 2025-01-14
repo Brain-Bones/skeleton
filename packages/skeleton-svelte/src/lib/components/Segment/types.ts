@@ -10,7 +10,7 @@ export interface SegmentContext {
 
 // Components ---
 
-export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
+export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation'> {
 	/** Set the active value. */
 	value?: string;
 	/** Set the orientation. */

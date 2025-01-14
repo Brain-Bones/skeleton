@@ -39,6 +39,7 @@
 			id: useId(),
 			open,
 			onOpenChange(details) {
+				zagProps.onOpenChange?.(details);
 				open = details.open;
 			}
 		}),

@@ -4,7 +4,6 @@
 	import { useId } from '$lib/internal/use-id.js';
 	import { starEmpty, starHalf, starFull } from '$lib/internal/snippets.js';
 	import type { RatingProps } from './types.js';
-	import { noop } from '$lib/internal/noop.js';
 
 	// Props
 	let {
@@ -32,8 +31,6 @@
 		iconFull = starFull,
 		// Children
 		label,
-		// Events
-		onValueChange = noop,
 		// Zag
 		...zagProps
 	}: RatingProps = $props();
@@ -43,8 +40,8 @@
 		rating.machine({
 			id: useId(),
 			onValueChange: (details) => {
+				zagProps.onValueChange?.(details);
 				value = details.value;
-				onValueChange(details.value);
 			}
 		}),
 		{

@@ -48,9 +48,11 @@
 			id: useId(),
 			count: data.length,
 			onPageChange(details) {
+				zagProps.onPageChange?.(details);
 				page = details.page;
 			},
 			onPageSizeChange(details) {
+				zagProps.onPageSizeChange?.(details);
 				pageSize = details.pageSize;
 			}
 		}),
