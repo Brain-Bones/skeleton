@@ -19,10 +19,10 @@ import ExampleStepOne from '@examples/guides/cookbook/stepper/ExampleStepOne.sve
 	<Fragment slot="preview">
 		<Example client:visible />
 	</Fragment>
-	<Fragment slot="code">
-		<div class="card preset-outlined-warning-500 p-8 space-y-8 mb-4">
-			<p>The example below has been constructed using <strong>Svelte</strong>. Other frameworks will be available in the future.</p>
-		</div>
+	<Fragment slot="codeReact">
+		<Code code={`Coming soon...`} lang="react" />
+	</Fragment>
+	<Fragment slot="codeSvelte">
 		<Code code={ExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
@@ -35,11 +35,11 @@ Optionally, you can substitute primative data for components and props.
 	<Fragment slot="preview">
 		<ExampleComponent client:visible />
 	</Fragment>
-	<Fragment slot="code">
+	<Fragment slot="codeReact">
+		<Code code={`Coming soon...`} lang="react" />
+	</Fragment>
+	<Fragment slot="codeSvelte">
 		<div class="space-y-4">
-			<div class="card preset-outlined-warning-500 p-8 space-y-8">
-				<p>The example below has been constructed using <strong>Svelte</strong>. Other frameworks will be available in the future.</p>
-			</div>
 			<Code code={ExampleComponentRaw} lang="svelte" />
 			<Code code={ExampleStepOne} lang="svelte" title="ExampleStepOne.svelte" />
 		</div>

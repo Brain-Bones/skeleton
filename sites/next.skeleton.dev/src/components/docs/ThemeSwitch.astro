@@ -14,7 +14,7 @@ function capitalizeFirstLetter(text: string) {
 	<div class="input-group-cell">
 		<Palette size={18} />
 	</div>
-	<select id="themesList">
+	<select data-theme-list>
 		<!-- Loop and generate theme list automatically -->
 		{
 			Object.keys(themes).map((themeName) => (
@@ -26,26 +26,34 @@ function capitalizeFirstLetter(text: string) {
 	</select>
 </div>
 
-<script is:inline>
-	const elemSelect = document.getElementById('themesList');
+<script>
+	const elemSelect = document.querySelectorAll('[data-theme-list]');
 	const lsTheme = localStorage.getItem('theme') || 'cerberus';
 
-	// Init
-	elemSelect.value = lsTheme;
-	setBodyAttr(lsTheme);
+	if (elemSelect) {
+		// Init
+		elemSelect.forEach((es: any) => (es.value = lsTheme));
+		setBodyAttr(lsTheme);
 
-	// Change Handler
-	function onChangeHandler(event) {
-		const selectedTheme = event.target.value;
-		document.body.dataset.theme = selectedTheme;
-		setBodyAttr(selectedTheme);
-		localStorage.setItem('theme', selectedTheme);
+		// Change Handler
+		function onChangeHandler(event: any) {
+			const selectedTheme = event.target.value;
+			document.body.classList.add('transition-all');
+			document.body.classList.add('duration-200');
+			document.body.dataset.theme = selectedTheme;
+			setBodyAttr(selectedTheme);
+			localStorage.setItem('theme', selectedTheme);
+			setTimeout(() => {
+				document.body.classList.remove('transition-all');
+				document.body.classList.remove('duration-200');
+			}, 200);
+		}
+
+		function setBodyAttr(theme: any) {
+			document.body.dataset.theme = theme;
+		}
+
+		// Listeners
+		elemSelect.forEach((es: any) => es.addEventListener('change', onChangeHandler));
 	}
-
-	function setBodyAttr(theme) {
-		document.body.dataset.theme = theme;
-	}
-
-	// Listeners
-	elemSelect.addEventListener('change', onChangeHandler);
 </script>

@@ -2,6 +2,9 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace('/docs', '').slice(1);
+
 interface Props {
 	classList?: string;
 }
@@ -55,16 +58,22 @@ const navigation = {
 };
 ---
 
-<aside class="type-scale-2 space-y-10 overflow-y-auto" class:list={[classList]}>
+<aside class="type-scale-2 space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
 	{
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">
-				<span class="font-bold capitalize">{key.replace('-', ' ')}</span>
-				{pages.map((page) => (
-					<a class="anchor" href={`/docs/${page.slug}`} title={page.data.title}>
-						{page.data.title}
-					</a>
-				))}
+				<span class="font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<ul class="flex flex-col gap-1">
+					{pages.map((page) => (
+						<a
+							class={`px-2 py-1 rounded ${currentPath.includes(page.slug.replace('/meta', '')) ? 'preset-tonal' : 'anchor'}`}
+							href={`/docs/${page.slug}`}
+							title={page.data.title}
+						>
+							{page.data.title}
+						</a>
+					))}
+				</ul>
 			</nav>
 		))
 	}

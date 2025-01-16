@@ -65,7 +65,7 @@ const urls = {
 	<!-- Page -->
 	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_minmax(0px,_1fr)_290px]">
 		<!-- Navigation -->
-		<aside class="sticky top-0 hidden max-h-screen self-start overflow-y-auto p-4 py-10 pb-96 xl:block xl:px-0">
+		<aside class="sticky top-0 hidden max-h-screen self-start overflow-y-auto p-4 py-10 pb-96 xl:block xl:px-0" data-navigation>
 			<Navigation />
 		</aside>
 		<!-- Main -->
@@ -98,3 +98,38 @@ const urls = {
 	<!-- Footer -->
 	<Footer />
 </LayoutRoot>
+
+<script>
+	(() => {
+		const key = 'toc-position';
+		let timeout = 0;
+		let position = { scrollTop: 0 };
+		const sidebar = document.querySelector('[data-navigation]');
+
+		if (sidebar) {
+			const data = sessionStorage.getItem(key);
+			if (data) {
+				try {
+					const obj = JSON.parse(data);
+					position = {
+						...position,
+						...obj
+					};
+					sidebar.scrollTop = position.scrollTop || 0;
+				} catch (err) {
+					// ...
+				}
+			}
+
+			sidebar.addEventListener('scroll', () => {
+				position.scrollTop = sidebar.scrollTop;
+				if (!timeout) {
+					timeout = window.setTimeout(() => {
+						sessionStorage.setItem(key, JSON.stringify(position));
+						timeout = 0;
+					}, 100);
+				}
+			});
+		}
+	})();
+</script>

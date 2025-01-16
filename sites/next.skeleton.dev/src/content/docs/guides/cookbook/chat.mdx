@@ -24,10 +24,10 @@ import ExampleBubblesRaw from '@examples/guides/cookbook/chat/ExampleBubbles.ast
 	<Fragment slot="preview">
 		<Example client:visible />
 	</Fragment>
-	<Fragment slot="code">
-		<div class="card preset-outlined-warning-500 p-8 space-y-8 mb-4">
-			<p>The example below has been constructed using <strong>Svelte</strong>. Other frameworks will be available in the future.</p>
-		</div>
+	<Fragment slot="codeReact">
+		<Code code={`Coming soon...`} lang="react" />
+	</Fragment>
+	<Fragment slot="codeSvelte">
 		<Code code={ExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
@@ -111,18 +111,31 @@ let messageFeed = [ /* ...*/ ];
 
 Then bind to the textarea for your prompt in order to capture any message typed by the user.
 
-```ts
-// Svelte Element Reference
-let elemPrompt: HTMLElement;
-// React Element Reference
-let elemPrompt: HTMLElement = useRef();
-```
-```svelte
-<!-- Svelte Binding --->
-<textarea bind:value={elemPrompt} ... />
-<!-- React Binding --->
-<textarea ref={elemPrompt} ... />
-```
+<Preview selected="codeReact" client:visible>
+	<Fragment slot="codeReact">
+		```tsx
+		let elemPrompt: HTMLElement = useRef();
+		```
+	</Fragment>
+	<Fragment slot="codeSvelte">
+		```ts
+		let elemPrompt: HTMLElement;
+		```
+	</Fragment>
+</Preview>
+
+<Preview selected="codeReact" client:visible>
+	<Fragment slot="codeReact">
+		```tsx
+		<textarea ref={elemPrompt} ... />
+		```
+	</Fragment>
+	<Fragment slot="codeSvelte">
+		```svelte
+		<textarea bind:value={elemPrompt} ... />
+		```
+	</Fragment>
+</Preview>
 
 Here's an example of how we might append a new message to the `messageFeed` array.
 

@@ -80,6 +80,17 @@ body {
 	@apply card preset-filled-primary-500;
 }
 
+/* Linker */
+/* Prominant link elements for MDX pages */
+
+.linker {
+	@apply card flex justify-center px-4 py-8 shadow;
+	@apply bg-gradient-to-br from-primary-500 to-primary-800 text-primary-contrast-500;
+}
+.linker-item {
+	@apply btn bg-surface-50 text-surface-950 shadow;
+}
+
 /* Floating UI */
 /* https://floating-ui.com/docs/tutorial#making-the-tooltip-float */
 /* https://floating-ui-svelte.vercel.app/docs/getting-started */

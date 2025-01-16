@@ -5,11 +5,11 @@
 import { SunMoon } from 'lucide-react';
 ---
 
-<button id="lightswitch" class="btn hover:preset-tonal" title="Toggle dark mode.">
+<button data-lightswitch class="btn hover:preset-tonal" title="Toggle dark mode.">
 	<SunMoon size={24} />
 </button>
 
-<script is:inline>
+<script>
 	const darkMode = (() => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('darkMode')) {
 			return localStorage.getItem('darkMode');
@@ -26,7 +26,7 @@ import { SunMoon } from 'lucide-react';
 		document.documentElement.classList.add('dark');
 	}
 
-	window.localStorage.setItem('darkMode', darkMode);
+	window.localStorage.setItem('darkMode', String(darkMode));
 
 	const handleToggleClick = () => {
 		const element = document.documentElement;
@@ -36,5 +36,6 @@ import { SunMoon } from 'lucide-react';
 		localStorage.setItem('darkMode', isDark ? 'dark' : 'light');
 	};
 
-	document.getElementById('lightswitch').addEventListener('click', handleToggleClick);
+	const elemsLightswitch = document.querySelectorAll('[data-lightswitch]');
+	elemsLightswitch.forEach((ls) => ls.addEventListener('click', handleToggleClick));
 </script>
