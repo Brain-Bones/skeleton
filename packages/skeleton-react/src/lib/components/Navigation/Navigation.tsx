@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useId } from 'react';
 import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 
 // Contexts ---
@@ -186,6 +186,11 @@ export const NavTile: React.FC<NavTileProps> = ({
 }) => {
 	// Get Context
 	const ctx = useContext<NavContextState>(NavContext);
+
+	const generatedId = useId();
+	if (!id) {
+		id = generatedId;
+	}
 
 	// Local
 	const TileElement = href ? 'a' : 'button';

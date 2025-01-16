@@ -15,24 +15,24 @@
 	<!-- Component -->
 	<Navigation.Rail>
 		{#snippet header()}
-			<Navigation.Tile href="/" title="Menu"><IconMenu /></Navigation.Tile>
+			<Navigation.Tile id="0" href="/" title="Menu"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile id="0" label="Files" href={hrefExample}>
+			<Navigation.Tile id="1" label="Files" href={hrefExample}>
 				<IconFolder />
 			</Navigation.Tile>
-			<Navigation.Tile id="1" label="Images" href={hrefExample}>
+			<Navigation.Tile id="2" label="Images" href={hrefExample}>
 				<IconImage />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" label="Music" href={hrefExample}>
+			<Navigation.Tile id="3" label="Music" href={hrefExample}>
 				<IconMusic />
 			</Navigation.Tile>
-			<Navigation.Tile id="3" label="Videos" href={hrefExample}>
+			<Navigation.Tile id="4" label="Videos" href={hrefExample}>
 				<IconVideo />
 			</Navigation.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<Navigation.Tile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Navigation.Tile>
+			<Navigation.Tile id="5" labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Navigation.Tile>
 		{/snippet}
 	</Navigation.Rail>
 	<!-- Content -->

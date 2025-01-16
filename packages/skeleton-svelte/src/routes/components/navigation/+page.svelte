@@ -90,7 +90,7 @@
 					</Navigation.Tile>
 				{/snippet}
 				{#snippet footer()}
-					<Navigation.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
+					<Navigation.Tile id="5" labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
 				{/snippet}
 			</Navigation.Rail>
 		</div>

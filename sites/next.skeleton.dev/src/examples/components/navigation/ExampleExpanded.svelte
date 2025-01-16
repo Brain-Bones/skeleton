@@ -16,27 +16,27 @@
 	<!-- Component -->
 	<Navigation.Rail expanded>
 		{#snippet header()}
-			<Navigation.Tile href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>
+			<Navigation.Tile id="0" href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile id="0" labelExpanded="Browse Files" href={hrefExample}>
+			<Navigation.Tile id="1" labelExpanded="Browse Files" href={hrefExample}>
 				<IconFolder />
 			</Navigation.Tile>
-			<Navigation.Tile id="1" labelExpanded="Browse Images" href={hrefExample}>
+			<Navigation.Tile id="2" labelExpanded="Browse Images" href={hrefExample}>
 				<IconImage />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Music" href={hrefExample}>
+			<Navigation.Tile id="3" labelExpanded="Browse Music" href={hrefExample}>
 				<IconMusic />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Videos" href={hrefExample}>
+			<Navigation.Tile id="4" labelExpanded="Browse Videos" href={hrefExample}>
 				<IconVideo />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Games" href={hrefExample}>
+			<Navigation.Tile id="5" labelExpanded="Browse Games" href={hrefExample}>
 				<IconGames />
 			</Navigation.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<Navigation.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
+			<Navigation.Tile id="6" labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
 		{/snippet}
 	</Navigation.Rail>
 	<!-- Content -->
