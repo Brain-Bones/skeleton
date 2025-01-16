@@ -1,4 +1,4 @@
-import { AppRail, FileButton, FileDropzone, InputChip, Paginator, ProgressBar, ProgressRadial, RadioGroup, RangeSlider, SlideToggle } from "@skeletonlabs/skeleton";
+import { AppRail, FileButton, FileDropzone, InputChip, Paginator, ProgressBar, ProgressRadial, RadioGroup, RangeSlider, SlideToggle, TabGroup } from "@skeletonlabs/skeleton";
 
 AppRail;
 FileButton;
@@ -10,3 +10,4 @@ ProgressRadial;
 RadioGroup;
 RangeSlider;
 SlideToggle;
+TabGroup;

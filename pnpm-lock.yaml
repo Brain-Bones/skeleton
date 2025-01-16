@@ -248,9 +248,6 @@ importers:
       detect-indent:
         specifier: ^7.0.1
         version: 7.0.1
-      esrap:
-        specifier: ^1.4.3
-        version: 1.4.3
       fast-glob:
         specifier: ^3.3.1
         version: 3.3.2
@@ -260,6 +257,9 @@ importers:
       magic-string:
         specifier: ^0.30.17
         version: 0.30.17
+      nanoid:
+        specifier: ^5.0.9
+        version: 5.0.9
       package-manager-detector:
         specifier: ^0.2.8
         version: 0.2.8
@@ -5038,6 +5038,11 @@ packages:
   nanoid@3.3.8:
     resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@5.0.9:
+    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
+    engines: {node: ^18 || >=20}
     hasBin: true
 
   nanostores@0.11.3:
@@ -12295,6 +12300,8 @@ snapshots:
       thenify-all: 1.6.0
 
   nanoid@3.3.8: {}
+
+  nanoid@5.0.9: {}
 
   nanostores@0.11.3: {}
 

@@ -1,5 +1,5 @@
 <script>
-	import { AppRail, FileButton, FileDropzone, InputChip, Paginator, ProgressBar, ProgressRadial, RadioGroup, RangeSlider, SlideToggle } from "@skeletonlabs/skeleton";
+	import { AppRail, FileButton, FileDropzone, InputChip, Paginator, ProgressBar, ProgressRadial, RadioGroup, RangeSlider, SlideToggle, TabGroup } from "@skeletonlabs/skeleton";
 
 	AppRail;
 	FileButton;
@@ -11,6 +11,7 @@
 	RadioGroup;
 	RangeSlider;
 	SlideToggle;
+	TabGroup;
 </script>
 
 <AppRail />
@@ -33,3 +34,5 @@
 <RangeSlider></RangeSlider>
 <SlideToggle />
 <SlideToggle></SlideToggle>
+<TabGroup />
+<TabGroup></TabGroup>

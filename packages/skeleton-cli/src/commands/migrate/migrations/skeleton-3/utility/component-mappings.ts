@@ -8,7 +8,8 @@ const COMPONENT_MAPPINGS: Record<string, string> = {
 	ProgressRadial: 'ProgressRing',
 	RadioGroup: 'Segment',
 	RangeSlider: 'Slider',
-	SlideToggle: 'Switch'
+	SlideToggle: 'Switch',
+	TabGroup: 'Tabs'
 };
 
 export { COMPONENT_MAPPINGS };

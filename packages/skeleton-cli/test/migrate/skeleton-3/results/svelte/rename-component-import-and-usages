@@ -1,5 +1,5 @@
 <script>
-	import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch } from "@skeletonlabs/skeleton-svelte";
+	import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
 
 	Navigation;
 	FileUpload;
@@ -11,6 +11,7 @@
 	Segment;
 	Slider;
 	Switch;
+	Tabs;
 </script>
 
 <Navigation />
@@ -33,3 +34,5 @@
 <Slider></Slider>
 <Switch />
 <Switch></Switch>
+<Tabs />
+<Tabs></Tabs>

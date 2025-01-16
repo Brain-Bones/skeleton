@@ -1,4 +1,4 @@
-import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch } from "@skeletonlabs/skeleton-svelte";
+import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
 
 Navigation;
 FileUpload;
@@ -10,3 +10,4 @@ ProgressRing;
 Segment;
 Slider;
 Switch;
+Tabs;

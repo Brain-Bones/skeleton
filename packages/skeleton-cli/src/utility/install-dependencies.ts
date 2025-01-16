@@ -5,7 +5,7 @@ async function installDependencies(cwd = process.cwd()) {
 	const pm = await detect({
 		cwd: cwd
 	});
-	const resolvedCommand = resolveCommand(pm?.agent ?? 'npm', 'install', ['--force']);
+	const resolvedCommand = resolveCommand(pm?.agent ?? 'npm', 'install', []);
 	if (!resolvedCommand) {
 		throw new Error('Could not resolve package manager command.');
 	}
