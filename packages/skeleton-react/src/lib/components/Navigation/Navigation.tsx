@@ -188,7 +188,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	const ctx = useContext<NavContextState>(NavContext);
 
 	const generatedId = useId();
-	if(!id) {
+	if (!id) {
 		id = generatedId;
 	}
 
