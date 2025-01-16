@@ -30,7 +30,7 @@ export interface Toast {
 // Context ---
 
 // https://zagjs.com/components/react/toast#programmatic-control
-/** Provides accesss to the Toast Context API. */
+/** Provides access to the Toast Context API. */
 export interface ToastContext {
 	/** Used to create display a new Toast instance. */
 	create: (toast: Toast) => void;

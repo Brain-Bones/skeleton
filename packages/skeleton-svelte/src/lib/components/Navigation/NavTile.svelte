@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { useId } from '$lib/internal/use-id.js';
 	import { getNavigationContext } from './context.js';
 	import type { NavTileProps } from './types.js';
 
 	let {
-		id,
+		id = useId(),
 		href,
 		target,
 		label,
