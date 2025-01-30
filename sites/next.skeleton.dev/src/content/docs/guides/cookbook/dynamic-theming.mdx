@@ -1,0 +1,146 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Dynamic Theme Loading (sveltekit)
+description: Load skeleton themes on demand.
+showDocsUrl: true
+pubDate: 2025-01-18
+tags: ['theme', 'guides']
+---
+
+export const components = componentSet;
+
+## About Themes
+
+The most common way to load skeleton themes is by adding them on the skeleton tailwind plugin.
+
+```ts
+// tailwind.config.ts
+plugins: [
+  skeleton({
+    themes: [themes.cerberus, themes.pine]
+  })
+];
+```
+
+This will make the theme css variables be bundled within the skeleton CSS bundle, making it larger the more themes you add.
+
+While this is sufficient for most applications this might not be flexible enough for your needs, you may want themes to be 
+user specific, editable, organization specific and so on, since skeleton themes are just CSS variables there are many ways
+you can load themes on demand, see this guide as recommendation.
+
+## Creating Stylesheets on layout load
+
+This approach assumes the CSS variables of the skeleton theme you want is available during the load function (eg: on your database or in memory).
+
+For this example we will include a default theme on the skeleton plugin so it can be used as a fallback.
+
+```ts
+//  tailwind.config.ts
+import { defaultTheme } from './src/themes/default';
+
+export default {
+    // ...omitted for brevity
+	plugins: [
+		skeleton({ themes: [defaultTheme] })
+	]
+};
+```
+
+```ts
+// src/themes/default.ts
+import type { Theme } from '@skeletonlabs/skeleton/themes';
+
+export const DEFAULT_THEME_NAME = 'default';
+
+export const defaultTheme = {
+    name: DEFAULT_THEME_NAME,
+    properties: {
+        '--type-scale-factor': '1.125',
+        // ...
+    },
+    metadata: {
+        version: '3.0.0'
+    }
+} satisfies Theme;
+```
+
+Now lets generate CSS variables dynamically based on available themes
+
+```ts
+// src/routes/+layout.server.ts
+import type { Theme } from '@skeletonlabs/skeleton/themes';
+import * as themes from '@skeletonlabs/skeleton/themes';
+import { DEFAULT_THEME_NAME } from '../../themes/default';
+
+function createStyleTagWithCssVarsOfThemes(themes: Theme[]) {
+    const cssVars = themes
+        .map(({ name, properties }) => {
+            const cssVars = Object.entries(properties)
+                .map(([key, value]) => `  ${key}: ${value};`)
+                .join('\n');
+
+            return `:root [data-theme='${name}'] {\n${cssVars}\n}`;
+        })
+        .join('\n\n');
+
+    return `<style type="text/css">\n${cssVars}\n</style>`;
+}
+
+async function mockGetUserAvailableThemesFromDatabase(user: any): Theme[] {
+	// we dont need to add the default theme here since its included in the main css bundle
+	return [themes.hamlindigo, themes.wintry, themes.rocket]
+}
+
+export async function load({ locals }) {
+	// do any business logic you want here
+	const availableThemes = await mockGetUserAvailableThemesFromDatabase(locals.user)
+
+    return {
+        availableThemes: [DEFAULT_THEME_NAME, ...availableThemes.map((t) => t.name)],
+        themesStyleTag: createStyleTagWithCssVarsOfThemes(availableThemes)
+    };
+}
+```
+
+The function `createStyleTagWithCssVarsOfThemes` just creates the raw string of the style tag containing the CSS variables,
+the example above generates the following
+
+>⚠️ *Important* make sure input that generates the CSS is sanitized
+
+```html
+<style type="text/css">
+:root [data-theme='hamlindigo'] {
+  --type-scale-1: calc(0.75rem * var(--type-scale-factor));
+	/* ...omitted */
+}
+
+:root [data-theme='wintry'] {
+  --type-scale-1: calc(0.75rem * var(--type-scale-factor));
+  /* ...omitted */
+}
+
+:root [data-theme='rocket'] {
+  --type-scale-1: calc(0.75rem * var(--type-scale-factor));
+  /* ...omitted */
+}
+</style>
+```
+
+Finally add the theme css style tag to the document head using `svelte:head`
+
+```svelte
+// src/routes/+layout.svelte
+<script lang="ts">
+    import { page } from '$app/stores';
+    import { getLayoutContext } from '$lib/store/layout.svelte';
+
+    let { children, data } = $props();
+</script>
+
+<svelte:head>{@html data.themesStyleTag}</svelte:head>
+```
+
+Note that this is not the only way to do this, another way could be to generate CSS files with
+the same content as the one in this example and then load only the css files you want, while this
+is more complex than storing and retrieving themes as JSON on a database this approach could benefit
+from the browser caching mechanism.
