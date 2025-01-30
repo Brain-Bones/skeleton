@@ -5,6 +5,8 @@ import type { FlyParams, FadeParams } from 'svelte/transition';
 export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	/** Set the open state of the dialog. */
 	open?: boolean;
+	/** Disable trigger element of the dialog */
+	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */

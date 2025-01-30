@@ -10,6 +10,7 @@
 		data = $bindable([]),
 		value = $bindable([]),
 		label = '',
+		disabled = false,
 		// Base
 		base = '',
 		width = '',
@@ -99,9 +100,9 @@
 		<!-- Input Group -->
 		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
 			<!-- Input -->
-			<input {...api.getInputProps()} class={inputGroupInput} />
+			<input {...api.getInputProps()} class={inputGroupInput} {disabled} />
 			<!-- Arrow -->
-			<button {...triggerProps} class={inputGroupButton}>
+			<button {...triggerProps} class={inputGroupButton} {disabled}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}

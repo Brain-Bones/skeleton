@@ -9,6 +9,7 @@
 	let {
 		open = $bindable(false),
 		arrow = false,
+		disabled = false,
 		// Base
 		base = '',
 		classes = '',
@@ -62,7 +63,7 @@
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled}>
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->

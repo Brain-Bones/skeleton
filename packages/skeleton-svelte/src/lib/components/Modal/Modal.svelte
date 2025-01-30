@@ -7,6 +7,7 @@
 
 	let {
 		open = $bindable(false),
+		disabled = false,
 		// Base
 		base = '',
 		classes = '',
@@ -69,7 +70,7 @@
 
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled}>
 		{@render trigger?.()}
 	</button>
 

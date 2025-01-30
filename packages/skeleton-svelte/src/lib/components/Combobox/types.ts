@@ -8,6 +8,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	value?: string[] | undefined;
 	/** Set the label to display. */
 	label?: string;
+	/** Disable the trigger element of the combobox */
+	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */

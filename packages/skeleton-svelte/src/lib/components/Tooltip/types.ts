@@ -4,6 +4,8 @@ import * as tooltip from '@zag-js/tooltip';
 export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	/** Set the open state of the tooltip. */
 	open?: boolean;
+	/** Disable the trigger element of the tooltip */
+	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */
