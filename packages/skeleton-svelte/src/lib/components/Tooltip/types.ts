@@ -4,6 +4,8 @@ import * as tooltip from '@zag-js/tooltip';
 export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	/** Set the open state of the tooltip. */
 	open?: boolean;
+	/** Enable display of the popover arrow. */
+	arrow?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -34,6 +36,14 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	contentBackground?: string;
 	/** Provide arbitrary styles for the content. */
 	contentClasses?: string;
+
+	// Arrow ---
+	/** Set base classes for the arrow. */
+	arrowBase?: string;
+	/** Set background classes for the arrow. */
+	arrowBackground?: string;
+	/** Provide arbitrary classes for the arrow. */
+	arrowClasses?: string;
 
 	// Snippets ---
 	/** Provide the template contents inside the trigger button. */
