@@ -1,0 +1,82 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: PurgeCSS
+description: Reducing your TailwindCSS bundle size using PurgeCSS
+showDocsUrl: false
+order: 30
+---
+
+export const components = componentSet;
+
+{/* prettier-ignore */}
+<p class="type-scale-5">Skeleton can be easily paired with PurgeCSS to help keep your TailwindCSS bundle size small and performant. 
+	Below you'll find information on why this is helpful, along with installation and usage details.</p>
+
+---
+
+## Introduction
+
+### Motivation
+
+Tailwind UI component libraries like Skeleton and Flowbite provide a number of benefits, but come with an important caveat – Tailwind generates classes for **all** imported components, even those unused in your project. This leads to a larger than necessary CSS bundle.
+
+Unfortunately, this is a limitation of how Tailwind implements its <a class="anchor" href="https://tailwindcss.com/docs/content-configuration" target="_blank">Content Configuration</a>. Tailwind searches through all files specified in `content`, uses a regex to locate possible selectors, then generates their respective classes. The key takeaway is that this occurs **before** the build process, meaning there is no built-in CSS treeshaking or purging against your production assets.
+
+### How it Works
+
+Ideally, you only want selectors for classes you actually use. This is where <a class="anchor" href="https://purgecss.com/" target="_blank">PurgeCSS</a> comes in. We analyze the files that are part of your project's module graph and extract the utilized Tailwind classes. From there, the plugin passes them along to PurgeCSS for final processing.
+
+>This plugin will no longer be necessary after the release of <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha" target="_blank">Tailwind v4</a>, which introduces a new <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha#zero-configuration-content-detection" target="_blank">Vite plugin</a> that auto-detects classes from the module graph. As such, **this plugin only supports Tailwind v3**.
+
+
+---
+
+## Usage
+
+>Last updated for `vite-plugin-tailwind-purgecss v0.3.0`. Check the plugin’s <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank">GitHub</a> for the latest instructions.
+
+### Supported Frameworks
+
+
+This plugin supports the following Vite-based frameworks:
+
+
+- SvelteKit
+- Vite + Svelte
+- Vite + React
+- Astro
+
+
+Next.js is **not supported** because it does not use Vite.
+
+
+### Installation
+
+```console
+npm i -D vite-plugin-tailwind-purgecss
+```
+
+### Add to Vite
+
+Implement the following in `vite.config.ts`, found in the root of your project.
+
+```ts title="vite.config.ts"
+import { defineConfig } from 'vite';
+import { purgeCss } from 'vite-plugin-tailwind-purgecss';
+
+// Other Vite plugins here, e.g. SvelteKit or React plugin
+
+export default defineConfig({
+  plugins: [
+    // existing plugins
+    purgeCss()
+  ]
+});
+```
+
+---
+
+## Attribution
+
+
+This plugin is provided courtesy of Skeleton co-maintainer <a class="anchor" href="https://github.com/AdrianGonz97" target="_blank" rel="noreferrer">Adrian (aka CokaKoala)</a>. Feel free to explore and contribute to <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" rel="noreferrer">vite-plugin-tailwind-purgecss</a> on GitHub.
