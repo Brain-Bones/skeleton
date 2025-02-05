@@ -1,6 +1,7 @@
 name: 📗 Report Docs Issue
 description: Use this to report a typo or incorrect information.
 labels: [documentation]
+type: Task
 body:
   - type: input
     id: link

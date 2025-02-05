@@ -1,6 +1,7 @@
 name: 🛠️ Request New Feature
 description: Let us know what you would like to see added.
 labels: ['feature request']
+type: Feature
 body:
   - type: textarea
     id: description

@@ -1,6 +1,7 @@
 name: 🐞 Bug
 description: Report an issue or bug
 labels: [bug]
+type: Bug
 body:
   - type: textarea
     attributes:
