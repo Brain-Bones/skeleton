@@ -1,0 +1,68 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
+const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+const colorPairings = [
+	[50, 950],
+	[100, 900],
+	[200, 800],
+	[300, 700],
+	[400, 600],
+	[600, 400],
+	[700, 300],
+	[800, 200],
+	[900, 100],
+	[950, 50]
+];
+---
+
+<Layout>
+	<div class="space-y-10">
+		<header><h1 class="h1">Colors</h1></header>
+		<!-- Color Palette -->
+		<section class="space-y-4">
+			<h2 class="h2">Color Palette</h2>
+			<div class="grid grid-cols-7 gap-0.5">
+				{
+					colorNames.map((name) => (
+						<div class="grid grid-cols-1 gap-0.5">
+							<div class="font-bold text-xs text-center p-2 capitalize">{name}</div>
+							{colorShades.map((shade) => (
+								<div class="w-full p-2 flex justify-center items-center" style={`background: var(--color-${name}-${shade})`}>
+									<strong class="text-xs text-center" style={`color: var(--color-${name}-contrast-${shade})`}>
+										{shade}
+									</strong>
+								</div>
+							))}
+						</div>
+					))
+				}
+			</div>
+		</section>
+		<!-- Color Pairings -->
+		<section class="space-y-4">
+			<h2 class="h2">Color Pairings</h2>
+			<div class="grid grid-cols-7 gap-0.5">
+				{
+					colorNames.map((name) => (
+						<div class="grid grid-cols-1 gap-0.5">
+							<div class="font-bold text-xs text-center p-2 capitalize">{name}</div>
+							{colorPairings.map((pairing, i) => {
+								const light = pairing[0];
+								const dark = pairing[1];
+								return (
+									<div class="w-full p-2 flex justify-center items-center" style={`background: var(--color-${name}-${light}-${dark})`}>
+										<strong class="text-xs text-center" style={`color: var(--color-${name}-contrast-${light}-${dark})`}>
+											{light} | {dark}
+										</strong>
+									</div>
+								);
+							})}
+						</div>
+					))
+				}
+			</div>
+		</section>
+	</div>
+</Layout>

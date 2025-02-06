@@ -1,0 +1,28 @@
+/* Base - Globals */
+/* Global styles that are enabled by default. */
+
+@layer base {
+	/* Color Scheme */
+	/* https://tailwindcss.com/docs/color-scheme */
+	:root {
+		color-scheme: light;
+		@variant dark {
+			color-scheme: dark;
+		}
+	}
+	/* Typography */
+
+	body {
+		/* Body Typography */
+		color: var(--base-font-color);
+		font-family: var(--base-font-family);
+		font-size: var(--base-font-size);
+		line-height: var(--base-line-height);
+		font-weight: var(--base-font-weight);
+		font-style: var(--base-font-style);
+		letter-spacing: var(--base-letter-spacing);
+		@variant dark {
+			color: var(--base-font-color-dark);
+		}
+	}
+}

@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en" data-theme="cerberus" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Skeleton - Core</title>
+	</head>
+	<body>
+		<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
+			<!-- Sidebar -->
+			<div class="bg-surface-100-900 p-8 space-y-8 overflow-y-auto">
+				<header>
+					<a class="text-base bg-[#06B6D4] p-2 font-mono font-bold text-white" href="/">skeleton-core</a>
+				</header>
+				<!-- <hr class="hr" /> -->
+				<!-- Design -->
+				<div class="space-y-8">
+					<span class="block font-bold">Design System</span>
+					<nav class="type-scale-2 flex flex-col gap-2">
+						<a class="anchor" href="/design/colors">Colors</a>
+						<a class="anchor" href="/design/typography">Typography</a>
+						<a class="anchor" href="/design/spacing">Spacing</a>
+						<a class="anchor" href="/design/presets">Presets</a>
+					</nav>
+				</div>
+				<!-- Tailwind Components -->
+				<div class="space-y-8">
+					<span class="block font-bold">Tailwind Components</span>
+					<nav class="type-scale-2 flex flex-col gap-2">
+						<!-- <a class="anchor" href="/components/badges">Badges</a> -->
+						<a class="anchor" href="/components/buttons">Buttons</a>
+						<!-- <a class="anchor" href="/components/cards">Cards</a> -->
+					</nav>
+				</div>
+			</div>
+			<!-- Main -->
+			<main class="container mx-auto overflow-y-auto p-8">
+				<slot />
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

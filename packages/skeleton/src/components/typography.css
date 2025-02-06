@@ -1,0 +1,178 @@
+/* Components: Typography */
+
+@layer components {
+	/* Headings --- */
+
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		color: var(--heading-font-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+		letter-spacing: var(--heading-letter-spacing);
+		@variant dark {
+			color: var(--heading-font-color-dark);
+		}
+	}
+	.h1 {
+		font-size: var(--text-4xl);
+		line-height: var(--text-4xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-5xl);
+			line-height: var(--text-5xl--line-height);
+		}
+	}
+	.h2 {
+		font-size: var(--text-3xl);
+		line-height: var(--text-3xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-4xl);
+			line-height: var(--text-4xl--line-height);
+		}
+	}
+	.h3 {
+		font-size: var(--text-2xl);
+		line-height: var(--text-2xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-3xl);
+			line-height: var(--text-3xl--line-height);
+		}
+	}
+	.h4 {
+		font-size: var(--text-xl);
+		line-height: var(--text-xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-2xl);
+			line-height: var(--text-2xl--line-height);
+		}
+	}
+	.h5 {
+		font-size: var(--text-lg);
+		line-height: var(--text-lg--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-xl);
+			line-height: var(--text-xl--line-height);
+		}
+	}
+	.h6 {
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-lg);
+			line-height: var(--text-lg--line-height);
+		}
+	}
+
+	/* Anchors --- */
+
+	.anchor {
+		color: var(--anchor-font-color);
+		font-family: var(--anchor-font-family);
+		font-size: var(--anchor-font-size);
+		line-height: var(--anchor-line-height);
+		font-weight: var(--anchor-font-weight);
+		font-style: var(--anchor-font-style);
+		letter-spacing: var(--anchor-letter-spacing);
+		text-decoration: var(--anchor-text-decoration);
+		@variant hover {
+			text-decoration: var(--anchor-text-decoration-hover);
+		}
+		@variant active {
+			text-decoration: var(--anchor-text-decoration-active);
+		}
+		@variant focus {
+			text-decoration: var(--anchor-text-decoration-focus);
+		}
+		@variant dark {
+			color: var(--anchor-font-color-dark);
+		}
+	}
+
+	/* Blockquote --- */
+
+	.blockquote {
+		border-left-width: 1px;
+		border-left-color: var(--color-surface-300-700);
+		padding-left: --spacing(4);
+		font-style: italic;
+	}
+
+	/* Keyboard --- */
+
+	.kbd {
+		background-color: var(--color-surface-500);
+		border-radius: var(--radii-default);
+		color: var(--color-surface-contrast-500);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		whitespace: nowrap;
+		overflow-x: auto;
+		padding-inline: --spacing(1);
+		padding-block: --spacing(0.5);
+	}
+
+	/* Preformated / Code --- */
+
+	.pre {
+		background-color: var(--color-black);
+		border-radius: var(--radii-container);
+		color: var(--color-white);
+		font-size: var(--text-xs);
+		whitespace: pre-wrap;
+		padding: --spacing(4);
+		overflow-x: auto;
+	}
+
+	:not(pre, .ec-line) > .code {
+		background-color: var(--color-primary-50-950);
+		border-radius: var(--radii-default);
+		color: var(--color-primary-contrast-50-950);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		whitespace: nowrap;
+		padding-inline: --spacing(1.5);
+		padding-block: --spacing(0.5);
+		overflow-x: auto;
+	}
+
+	/* Insertions / Deletions --- */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+	.ins,
+	.del {
+		position: relative;
+		display: block;
+		padding: --spacing(0.5);
+		padding-left: --spacing(5);
+		text-decoration: none;
+	}
+
+	.ins::before,
+	.del::before {
+		position: absolute;
+		left: --spacing(1);
+		font-family: var(--font-mono);
+	}
+	.ins::before {
+		content: '+';
+	}
+	.del::before {
+		content: '−';
+	}
+
+	.ins {
+		background-color: var(--color-success-500);
+		color: var(--color-success-contrast-500);
+		font-family: var(--font-mono);
+	}
+	.del {
+		background-color: var(--color-error-500);
+		color: var(--color-error-contrast-500);
+		font-family: var(--font-mono);
+	}
+}

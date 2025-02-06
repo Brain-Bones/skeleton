@@ -1,6 +1,7 @@
 packages:
   - 'packages/*'
   - 'sites/*'
+  - 'playgrounds/*'
 
 define: &zag_version '^0.78.3'
 

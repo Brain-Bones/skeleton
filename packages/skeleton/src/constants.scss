@@ -1,0 +1,47 @@
+// Constants
+
+/* Colors --- */
+
+$color-names: (primary, secondary, tertiary, success, warning, error, surface);
+$color-shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950);
+$color-pairings: ((50, 950), (100, 900), (200, 800), (300, 700), (400, 600), (600, 400), (700, 300), (800, 200), (900, 100), (950, 50));
+$color-ramp: (
+	oklch(0.985 0 0),
+	oklch(0.97 0 0),
+	oklch(0.922 0 0),
+	oklch(0.87 0 0),
+	oklch(0.708 0 0),
+	oklch(0.556 0 0),
+	oklch(0.439 0 0),
+	oklch(0.371 0 0),
+	oklch(0.269 0 0),
+	oklch(0.205 0 0),
+	oklch(0.145 0 0)
+);
+
+/* Themes --- */
+
+$themes: (
+	'catppuccin',
+	'cerberus',
+	'concord',
+	'fennec',
+	'mint',
+	'mona',
+	'nosh',
+	'pine',
+	'reign',
+	'rose',
+	'terminus',
+	'vox',
+	'crimson',
+	'hamlindigo',
+	'legacy',
+	'modern',
+	'nouveau',
+	'rocket',
+	'sahara',
+	'seafoam',
+	'vintage',
+	'wintry'
+);

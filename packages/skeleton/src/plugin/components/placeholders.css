@@ -1,9 +1,0 @@
-/* Components: Placeholders */
-
-.placeholder {
-	@apply bg-surface-500/20 min-h-4 rounded;
-}
-
-.placeholder-circle {
-	@apply bg-surface-500/20 aspect-square size-5 rounded-full;
-}

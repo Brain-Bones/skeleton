@@ -1,0 +1,124 @@
+/* Base - Theme */
+/* Configure the default @theme settings. */
+
+@use '../constants.scss';
+@use 'sass:list';
+
+@theme {
+	/* Spacing --- */
+	/* https://tailwindcss.com/docs/functions-and-directives#spacing-function */
+	--spacing: 0.25rem;
+
+	/* Typography --- */
+	--text-scaling: 1;
+	/* --- */
+	--text-xs: calc(0.75rem * var(--text-scaling));
+	--text-sm: calc(0.875rem * var(--text-scaling));
+	--text-base: calc(1rem * var(--text-scaling));
+	--text-lg: calc(1.125rem * var(--text-scaling));
+	--text-xl: calc(1.25rem * var(--text-scaling));
+	--text-2xl: calc(1.5rem * var(--text-scaling));
+	--text-3xl: calc(1.875rem * var(--text-scaling));
+	--text-4xl: calc(2.25rem * var(--text-scaling));
+	--text-5xl: calc(3rem * var(--text-scaling));
+	--text-6xl: calc(3.75rem * var(--text-scaling));
+	--text-7xl: calc(4.5rem * var(--text-scaling));
+	--text-8xl: calc(6rem * var(--text-scaling));
+	--text-9xl: calc(8rem * var(--text-scaling));
+	/* --- */
+	--text-xs--line-height: calc(calc(1 / 0.75) * var(--text-scaling));
+	--text-sm--line-height: calc(calc(1.25 / 0.875) * var(--text-scaling));
+	--text-base--line-height: calc(calc(1.5 / 1) * var(--text-scaling));
+	--text-lg--line-height: calc(calc(1.75 / 1.125) * var(--text-scaling));
+	--text-xl--line-height: calc(calc(1.75 / 1.25) * var(--text-scaling));
+	--text-2xl--line-height: calc(calc(2 / 1.5) * var(--text-scaling));
+	--text-3xl--line-height: calc(calc(2.25 / 1.875) * var(--text-scaling));
+	--text-4xl--line-height: calc(calc(2.5 / 2.25) * var(--text-scaling));
+	--text-5xl--line-height: calc(1 * var(--text-scaling));
+	--text-6xl--line-height: calc(1 * var(--text-scaling));
+	--text-7xl--line-height: calc(1 * var(--text-scaling));
+	--text-8xl--line-height: calc(1 * var(--text-scaling));
+	--text-9xl--line-height: calc(1 * var(--text-scaling));
+	/* --- */
+	--base-font-color: var(--color-surface-950);
+	--base-font-color-dark: var(--color-surface-50);
+	--base-font-family: inherit;
+	--base-font-size: inherit;
+	--base-line-height: inherit;
+	--base-font-weight: inherit;
+	--base-font-style: inherit;
+	--base-letter-spacing: inherit;
+	/* --- */
+	--heading-font-color: inherit;
+	--heading-font-color-dark: inherit;
+	--heading-font-family: inherit;
+	--heading-font-weight: inherit;
+	--heading-font-style: inherit;
+	--heading-letter-spacing: inherit;
+	/* --- */
+	--anchor-font-color: var(--color-primary-500);
+	--anchor-font-color-dark: var(--color-primary-400);
+	--anchor-font-family: inherit;
+	--anchor-font-size: inherit;
+	--anchor-line-height: inherit;
+	--anchor-font-weight: inherit;
+	--anchor-font-style: inherit;
+	--anchor-letter-spacing: inherit;
+	--anchor-text-decoration: inherit;
+	--anchor-text-decoration-hover: underline;
+	--anchor-text-decoration-active: inherit;
+	--anchor-text-decoration-focus: inherit;
+
+	/* Backgrounds --- */
+	--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);
+
+	/* Edges --- */
+	--radii-default: 6px;
+	--radii-container: 6px;
+	--border-width-default: 1px;
+	--divide-width-default: 1px;
+	--outline-width-default: 1px;
+	--ring-width-default: 1px;
+
+	/* Colors --- */
+	@each $name in constants.$color-names {
+		@for $i from 1 through list.length(constants.$color-shades) {
+			$shade: list.nth(constants.$color-shades, $i);
+			--color-#{$name}-#{$shade}: #{list.nth(constants.$color-ramp, $i)};
+		}
+
+		--color-#{$name}-contrast-dark: var(--color-#{$name}-950);
+		--color-#{$name}-contrast-light: var(--color-#{$name}-50);
+
+		--color-#{$name}-contrast-50: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-100: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-200: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-300: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-400: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-500: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-600: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-700: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-800: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-900: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-950: var(--color-#{$name}-contrast-light);
+	}
+}
+
+@theme inline {
+	/* Color Pairings */
+	/* https://github.com/tailwindlabs/tailwindcss/discussions/16292#discussioncomment-12076534 */
+	@each $name in constants.$color-names {
+		@each $shade in constants.$color-shades {
+			$contrasting-shade: 1000 - $shade;
+			--color-#{$name}-#{$shade}-#{$contrasting-shade}: light-dark(
+				var(--color-#{$name}-#{$shade}),
+				var(--color-#{$name}-#{$contrasting-shade})
+			);
+			--color-#{$name}-#{$contrasting-shade}-#{$shade}: light-dark(
+				var(--color-#{$name}-#{$contrasting-shade}),
+				var(--color-#{$name}-#{$shade})
+			);
+		}
+	}
+}
